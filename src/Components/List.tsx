@@ -1,4 +1,4 @@
-import { closestCorners, DndContext, DragEndEvent, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core'
+import { closestCorners, DndContext, DragEndEvent } from '@dnd-kit/core'
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { useState } from 'react'
 import Item from './Item'
@@ -14,14 +14,9 @@ export default function List() {
         const newArr = arrayMove(PeopleList,originalPosition,newPosition)
         setPeopleList(newArr)
     }
-    const sensors = useSensors(
-    useSensor(PointerSensor), 
-    useSensor(TouchSensor),  
-    useSensor(KeyboardSensor)    
-    )
     return (
         <div className='bg-dark text-light flex-grow-1 d-flex flex-column justify-content-center overflow-hidden'>
-            <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+            <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
                 <SortableContext items={PeopleList} strategy={verticalListSortingStrategy}>
                     {PeopleList.map((item) => (
                         <Item key={item} id={item} item={item} />
