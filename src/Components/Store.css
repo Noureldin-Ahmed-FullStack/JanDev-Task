@@ -1,0 +1,60 @@
+.ProdDisplay{
+    transition: all 0.3s ease-in-out;
+    opacity: 80%;
+    border-radius: 3%;
+    cursor: pointer;
+    scale: 0.9;
+    width: 100%;
+    object-fit: cover;
+}
+.ProdDisplay:hover{
+    opacity: 100%;
+    scale: 1;
+}
+.BorderSettings{
+
+    box-sizing: border-box !important;
+}
+.ProductInfo{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.MyDial{
+    position: absolute;
+    right: 0;
+    display: flex;
+    bottom: 4rem;
+    cursor: pointer;
+    position: fixed;
+
+}
+.InnerDIal{
+    background-color: aquamarine;
+    border-radius: 50% 0 0 50%;
+    padding: 0.7rem;
+
+}
+.FakeDial{
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0px;
+    transition: all 0.3s ease-in-out;
+}
+.FakeDial::after{
+    color: white;
+    content: "Cart";
+    opacity: 0%;
+    font-size: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+.MyDial:hover .FakeDial{
+    width: 200px;
+}
+
+.MyDial:hover .FakeDial::after{
+   opacity: 100%;
+}
