@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Alert, Box, Grid, ListItemSecondaryAction, Slide, Snackbar } from "@mui/material";
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import { CiStar } from "react-icons/ci";
+import { ListItemSecondaryAction, Slide } from "@mui/material";
+
 import { CiShoppingCart } from "react-icons/ci";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -54,7 +52,7 @@ interface ProdObj {
 export default function Cart() {
     const [open, setOpen] = useState(false);
     const [Cart, setCart] = useState<ProdObj[]>([]);
-    const [Total, setTotal] = useState(0);
+    const [Total, _setTotal] = useState(0);
     const addToCart = (product:ProdObj) => {
         console.log([...Cart, product]);
         
@@ -88,7 +86,7 @@ export default function Cart() {
     };
     return (
         <div className='bg-dark'>
-            <Button color='secondary' variant='outlined'>Your Cart</Button>
+            <Button color='secondary' onClick={handleClickOpen} variant='outlined'>Your Cart</Button>
             <Dialog
                 fullScreen
                 open={open}
