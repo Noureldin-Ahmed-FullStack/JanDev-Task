@@ -4,12 +4,16 @@
   /* padding: 2rem; */
   display: flex !important;
   flex-direction: column;
-
-  min-height: 100vh !important;
+flex-grow: 1;
+  /* min-height: 100% !important; */
   text-align: center;
   width: 100% !important;
 }
-
+body{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
